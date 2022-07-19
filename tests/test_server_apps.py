@@ -110,6 +110,7 @@ async def test_web_python_apps(fastapi_server):
     config = await controller.launch(
         source=source,
         wait_for_service="default",
+        timeout=320,
     )
     assert config.name == "WebPythonPlugin"
     plugin = await api.get_service(f"{workspace}/{config.id}:default")
